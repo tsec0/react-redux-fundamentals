@@ -27,12 +27,13 @@ const filtersSlice = createSlice({
             if (!colors.includes(color)) {
               colors.push(color)
             }
-            break
+            break;
           }
           case 'removed': {
             state.colors = colors.filter(
               (existingColor) => existingColor !== color
             )
+            break;
           }
           default:
             return
