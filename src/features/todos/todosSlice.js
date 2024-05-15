@@ -7,18 +7,21 @@ import {
 import { client } from '../../api/client'
 import { StatusFilters } from '../filters/filtersSlice'
 
-const todosAdapter = createEntityAdapter()
+const todosAdapter = createEntityAdapter();
 
 const initialState = todosAdapter.getInitialState({
   status: 'idle',
 })
 
 // Thunk functions
+
+// Get todos
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
   const response = await client.get('/fakeApi/todos')
   return response.todos
 })
 
+// Create todo
 export const saveNewTodo = createAsyncThunk(
   'todos/saveNewTodo',
   async (text) => {
@@ -28,6 +31,7 @@ export const saveNewTodo = createAsyncThunk(
   }
 )
 
+// todo slice => added, updated, deleted and other
 const todosSlice = createSlice({
   name: 'todos',
   initialState,
