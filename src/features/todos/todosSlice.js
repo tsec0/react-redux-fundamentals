@@ -21,7 +21,7 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
   return response.todos
 })
 
-// Create todo
+// Create todo -> Save
 export const saveNewTodo = createAsyncThunk(
   'todos/saveNewTodo',
   async (text) => {
@@ -31,7 +31,7 @@ export const saveNewTodo = createAsyncThunk(
   }
 )
 
-// todo slice => added, updated, deleted and other
+// todo slice => updated, deleted and other
 const todosSlice = createSlice({
   name: 'todos',
   initialState,
